@@ -19,7 +19,7 @@ function Cart({ items, setCart, data, updateCart }) {
       <div className="order-last lg:order-0 lg:col-start-4 lg:row-span-9 lg:self-start lg:col-span-4">
         <div className="grid h-full p-4 bg-rose-50 rounded-xl">
           <h2 className="text-red font-bold text-2xl">
-            Your Cart (<span>{totalCount}</span>)
+            Your Cart ({totalCount})
           </h2>
           {names.length === 0 ? (
             <div className="flex flex-col justify-between">
@@ -107,6 +107,7 @@ function Cart({ items, setCart, data, updateCart }) {
                         </span>
                       </div>
                       <svg
+                        data-testid="delete-item"
                         onClick={() => {
                           updateCart(name, 0);
                         }}

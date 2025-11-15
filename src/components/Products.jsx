@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Cart from "./Cart";
 import CartButton from "./CartButton";
-import data from "../../public/data.json";
+import data from "../data.json";
 
 function Products() {
   const [cart, setCart] = useState({});
@@ -17,7 +17,12 @@ function Products() {
   };
   return (
     <main className="container mx-auto px-4 pb-5 md:pb-8 xl:px-15 grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      <Cart items={cart} setCart={setCart} data={data} updateCart={updateCart} />
+      <Cart
+        items={cart}
+        setCart={setCart}
+        data={data}
+        updateCart={updateCart}
+      />
 
       {data.map((product) => (
         <div key={product.name} className="flex flex-col gap-8">
@@ -34,6 +39,7 @@ function Products() {
               <img
                 src={product.image.mobile}
                 alt={product.category}
+                data-testid="product-img"
                 className={`max-w-full rounded-xl border-3 border-transparent transition ease-out duration-300 ${
                   cart[product.name] !== undefined && "border-red!"
                 }`}

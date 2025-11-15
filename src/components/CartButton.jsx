@@ -1,5 +1,4 @@
 function CartButton({ name, onChange, count }) {
-
   const addToCart = () => {
     onChange(name, 1);
   };
@@ -20,6 +19,7 @@ function CartButton({ name, onChange, count }) {
           className="h-10 w-36 flex items-center justify-between bg-red text-white mx-auto -m-5 px-4 rounded-3xl relative z-10 focus:outline-red focus:outline-offset-3 transition-colors duration-300"
         >
           <svg
+            data-testid="minus"
             onClick={decrease}
             tabIndex="0"
             className="rounded-full border border-white p-1 cursor-pointer hover:text-red hover:bg-white focus:outline-transparent transition-colors duration-300"
@@ -33,6 +33,7 @@ function CartButton({ name, onChange, count }) {
           </svg>
           <span>{count}</span>
           <svg
+            data-testid="plus"
             onClick={increase}
             tabIndex="0"
             className="rounded-full border border-white p-1 cursor-pointer hover:text-red hover:bg-white focus:outline-transparent transition-colors duration-300"
